@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--basicColor-->
+    <color name="colorPrimary">#FF5722</color>
+    <color name="colorPrimaryDark">#E64A19</color>
+    <color name="colorAccent">#FF5252</color>
+    <color name="textPrimaryColor">#212121</color>
+    <color name="textSecondaryColor">#757575</color>
+    <color name="dividerColor">#BDBDBD</color>
+
+    <!--standardColor-->
+    <color name="standardWhite">#ffffff</color>
+    <color name="standardBlack">#000000</color>
+</resources>
