@@ -26,7 +26,6 @@ public abstract class BaseActivity<V, P extends BasePresenter<V>> extends AppCom
         mPresenter = createPresenter();
         mPresenter.attachView((V) this);
         initAttributes();
-        initData();
         initView();
     }
 
@@ -39,7 +38,7 @@ public abstract class BaseActivity<V, P extends BasePresenter<V>> extends AppCom
 
     protected abstract void initView();
 
-    protected abstract void initData();
+    protected abstract void findAllViewById();
 
 
     /**
