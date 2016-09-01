@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--basicColor-->
-    <color name="colorPrimary">#FF5722</color>
-    <color name="colorPrimaryDark">#E64A19</color>
-    <color name="colorAccent">#FF5252</color>
+    <color name="colorPrimary">#FF9800</color>
+    <color name="colorLightPrimary">#FFE0B2</color>
+    <color name="colorPrimaryDark">#F57C00</color>
+    <color name="colorAccent">#FF5722</color>
     <color name="textPrimaryColor">#212121</color>
     <color name="textSecondaryColor">#757575</color>
     <color name="dividerColor">#BDBDBD</color>

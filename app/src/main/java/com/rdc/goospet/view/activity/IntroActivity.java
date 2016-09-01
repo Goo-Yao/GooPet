@@ -46,6 +46,10 @@ public class IntroActivity extends BaseActivity<IntroVInterface, IntroPresenter>
     protected void initView() {
         findAllViewById();
 
+        mVpIntro.setAdapter(mPagerAdapter);
+        mIndicator.setViewPager(mVpIntro);
+
+        mVpIntro.setPageTransformer(true, mPresenter.getTransformer());
     }
 
     @Override

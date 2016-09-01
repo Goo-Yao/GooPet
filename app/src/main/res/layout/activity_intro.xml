@@ -9,16 +9,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <!--圆形指示器-->
     <com.rdc.goospet.view.widget.CirclePageIndicator
         android:id="@+id/cpi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/ll_intro"
-        indicator:fillColor="#ffffffff"
+        indicator:fillColor="@color/colorPrimary"
         indicator:pageColor="#88ffffff"
         indicator:strokeColor="#00000000"
-        indicator:strokeWidth="0.0dip" />
+        indicator:strokeWidth="0.0dp" />
 
 
     <LinearLayout
@@ -37,7 +36,7 @@
             android:padding="10dp"
             android:text="@string/app_login"
             android:textColor="@color/standardWhite"
-            android:textSize="20sp" />
+            android:textSize="@dimen/text_size_l" />
 
         <TextView
             android:layout_width="0dp"
@@ -47,7 +46,7 @@
             android:padding="10dp"
             android:text="@string/app_register"
             android:textColor="@color/standardWhite"
-            android:textSize="20sp" />
+            android:textSize="@dimen/text_size_l" />
 
 
     </LinearLayout>

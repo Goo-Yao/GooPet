@@ -1,6 +1,8 @@
 package com.rdc.goospet.model.minterface;
 
-import android.support.v4.app.Fragment;
+import android.util.SparseArray;
+
+import com.rdc.goospet.base.BaseIntroFragment;
 
 import java.util.List;
 
@@ -9,5 +11,7 @@ import java.util.List;
  */
 public interface IntroMInterface {
 
-    List<Fragment> getIntroFragemnts();
+    List<BaseIntroFragment> getIntroFragemnts();
+
+    SparseArray<int[]> getLayoutViewIdsMap();
 }

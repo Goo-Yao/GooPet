@@ -4,6 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.rdc.goospet.base.BaseIntroFragment;
+
 import java.util.List;
 
 /**
@@ -11,9 +13,9 @@ import java.util.List;
  */
 public class IntroFragmentAdapter extends FragmentPagerAdapter {
 
-    private List<Fragment> mFragments = null;
+    private List<BaseIntroFragment> mFragments = null;
 
-    public IntroFragmentAdapter(FragmentManager fm, List<Fragment> fragments) {
+    public IntroFragmentAdapter(FragmentManager fm, List<BaseIntroFragment> fragments) {
         super(fm);
         mFragments = fragments;
     }
