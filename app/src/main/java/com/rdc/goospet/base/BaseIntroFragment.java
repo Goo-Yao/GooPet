@@ -7,7 +7,7 @@ import android.support.v4.app.Fragment;
  */
 public abstract class BaseIntroFragment extends Fragment {
 
-    public abstract int[] getChildViewIds();
+    public abstract int getViewTag();
 
-    public abstract int getRootViewId();
+    public abstract int[] getChildViewIds();
 }

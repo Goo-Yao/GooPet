@@ -2,7 +2,6 @@ package com.rdc.goospet.base;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -19,8 +18,8 @@ public abstract class BaseActivity<V, P extends BasePresenter<V>> extends AppCom
 
 
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(setContentViewById());
         //创建Presenter，并把自己交给Present
         mPresenter = createPresenter();

@@ -27,27 +27,33 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
+        android:padding="10dp"
         android:weightSum="2">
 
         <TextView
+            android:id="@+id/tv_login"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/bg_btn_selector"
             android:gravity="center"
             android:padding="10dp"
             android:text="@string/app_login"
             android:textColor="@color/standardWhite"
-            android:textSize="@dimen/text_size_l" />
+            android:textSize="@dimen/text_size_m" />
 
         <TextView
+            android:id="@+id/tv_register"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
+            android:background="@drawable/bg_btn_selector"
             android:gravity="center"
             android:padding="10dp"
             android:text="@string/app_register"
             android:textColor="@color/standardWhite"
-            android:textSize="@dimen/text_size_l" />
+            android:textSize="@dimen/text_size_m" />
 
 
     </LinearLayout>

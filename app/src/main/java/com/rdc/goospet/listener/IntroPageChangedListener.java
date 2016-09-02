@@ -1,9 +1,7 @@
 package com.rdc.goospet.listener;
 
 import android.animation.ArgbEvaluator;
-import android.annotation.TargetApi;
 import android.content.res.Resources;
-import android.os.Build;
 import android.support.v4.view.ViewPager;
 
 import com.rdc.goospet.R;
@@ -27,12 +25,11 @@ public class IntroPageChangedListener implements ViewPager.OnPageChangeListener 
         mPageWidth = pageWidth;
         mTotalScrollWidth = mPageWidth * pageNum;
 
-        mGuideStartBackgroundColor = resources.getColor(R.color.colorPrimaryDark);
+        mGuideStartBackgroundColor = resources.getColor(R.color.colorPrimary);
         mGuideEndBackgroundColor = resources.getColor(R.color.colorLightPrimary);
 
     }
 
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
         float ratio = (mPageWidth * position + positionOffsetPixels) / (float) mTotalScrollWidth;

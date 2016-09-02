@@ -10,6 +10,7 @@ import android.view.animation.AnimationUtils;
 
 import com.rdc.goospet.R;
 import com.rdc.goospet.base.BaseIntroFragment;
+import com.rdc.goospet.utils.AppConstants;
 
 /**
  * Created by Goo on 2016-9-1.
@@ -21,12 +22,14 @@ public class IntroFirstFragment extends BaseIntroFragment {
 
     private int[] mAnimationViewIds = {
             R.id.iv_intro_1, R.id.iv_intro_2, R.id.iv_intro_3,
-            R.id.iv_intro_4, R.id.iv_intro_6, R.id.iv_intro_7,
+            R.id.iv_intro_4, R.id.iv_intro_5, R.id.iv_intro_6, R.id.iv_intro_7,
     };
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_intro_first, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_intro_first, container, false);
+        rootView.setTag(AppConstants.INTRO_TAG_FIRST);
+        return rootView;
     }
 
     @Override
@@ -52,12 +55,19 @@ public class IntroFirstFragment extends BaseIntroFragment {
     @Override
     public int[] getChildViewIds() {
         return new int[]{
-                R.id.iv_intro_1
+                R.id.iv_intro_1,
+                R.id.iv_intro_2,
+                R.id.iv_intro_3,
+                R.id.iv_intro_4,
+                R.id.iv_intro_5,
+                R.id.iv_intro_6,
+                R.id.iv_intro_7
+
         };
     }
 
     @Override
-    public int getRootViewId() {
-        return R.layout.fragment_intro_first;
+    public int getViewTag() {
+        return AppConstants.INTRO_TAG_FIRST;
     }
 }

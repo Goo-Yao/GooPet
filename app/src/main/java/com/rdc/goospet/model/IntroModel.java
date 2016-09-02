@@ -36,7 +36,7 @@ public class IntroModel implements IntroMInterface {
         if (list != null && layoutViewIdsMap == null) {
             layoutViewIdsMap = new SparseArray<int[]>();
             for (int i = 0; i < list.size(); i++) {
-                layoutViewIdsMap.put(list.get(i).getRootViewId(), list.get(i).getChildViewIds());
+                layoutViewIdsMap.put(list.get(i).getViewTag(), list.get(i).getChildViewIds());
             }
             return layoutViewIdsMap;
         }
