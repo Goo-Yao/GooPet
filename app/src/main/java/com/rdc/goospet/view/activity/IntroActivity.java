@@ -1,12 +1,11 @@
 package com.rdc.goospet.view.activity;
 
-import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.v4.view.ViewPager;
 
 import com.rdc.goospet.R;
 import com.rdc.goospet.adapter.IntroFragmentAdapter;
 import com.rdc.goospet.base.BaseActivity;
+import com.rdc.goospet.listener.IntroPageChangedListener;
 import com.rdc.goospet.presenter.IntroPresenter;
 import com.rdc.goospet.view.vinterface.IntroVInterface;
 import com.rdc.goospet.view.widget.CirclePageIndicator;
@@ -20,11 +19,6 @@ public class IntroActivity extends BaseActivity<IntroVInterface, IntroPresenter>
     private CirclePageIndicator mIndicator;
     private IntroFragmentAdapter mPagerAdapter;
 
-    @Override
-
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
-    }
 
     @Override
     protected IntroPresenter createPresenter() {
@@ -39,17 +33,18 @@ public class IntroActivity extends BaseActivity<IntroVInterface, IntroPresenter>
 
     @Override
     protected void initAttributes() {
-        mPagerAdapter = mPresenter.getPagerAdapter(getSupportFragmentManager());
+
     }
 
     @Override
     protected void initView() {
         findAllViewById();
-
+        mPagerAdapter = mPresenter.getPagerAdapter(getSupportFragmentManager());
         mVpIntro.setAdapter(mPagerAdapter);
         mIndicator.setViewPager(mVpIntro);
 
         mVpIntro.setPageTransformer(true, mPresenter.getTransformer());
+        mIndicator.setOnPageChangeListener(new IntroPageChangedListener(mVpIntro, getWindowManager().getDefaultDisplay().getWidth(), mPagerAdapter.getCount(), getResources()));
     }
 
     @Override

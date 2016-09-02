@@ -11,6 +11,8 @@
         <activity
             android:name=".view.activity.MainActivity"
             android:screenOrientation="portrait" />
+
+
         <activity
             android:name=".view.activity.IntroActivity"
             android:screenOrientation="portrait">
@@ -19,6 +21,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
     </application>
 
