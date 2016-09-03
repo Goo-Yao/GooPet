@@ -26,6 +26,7 @@
             android:layout_gravity="center"
             android:layout_margin="@dimen/margin_s"
             android:gravity="center"
+            android:lineSpacingExtra="5dp"
             android:text="@string/intro_first"
             android:textColor="@color/standardWhite"
             android:textSize="@dimen/text_size_l"
@@ -37,6 +38,7 @@
             android:layout_gravity="center"
             android:layout_margin="@dimen/margin_s"
             android:gravity="center"
+            android:lineSpacingExtra="5dp"
             android:textColor="@color/standardWhite"
             android:textSize="@dimen/text_size_l"
             android:textStyle="bold" />
@@ -64,7 +66,7 @@
         android:weightSum="2">
 
         <TextView
-            android:id="@+id/tv_login"
+            android:id="@+id/tv_intro_login"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -76,7 +78,7 @@
             android:textSize="@dimen/text_size_m" />
 
         <TextView
-            android:id="@+id/tv_register"
+            android:id="@+id/tv_intro_register"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"

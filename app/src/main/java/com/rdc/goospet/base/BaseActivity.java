@@ -143,5 +143,4 @@ public abstract class BaseActivity<V, P extends BasePresenter<V>> extends AppCom
         return (T) findViewById(viewId);
     }
 
-
 }

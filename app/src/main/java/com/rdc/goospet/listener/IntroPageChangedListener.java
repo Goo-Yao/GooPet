@@ -46,6 +46,7 @@ public class IntroPageChangedListener implements ViewPager.OnPageChangeListener 
 
     @Override
     public void onPageSelected(int position) {
+
         mTSwitcher.setText(mIntroTips[position]);
     }
 

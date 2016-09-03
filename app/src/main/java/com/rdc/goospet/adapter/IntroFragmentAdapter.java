@@ -2,7 +2,7 @@ package com.rdc.goospet.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.rdc.goospet.base.BaseIntroFragment;
 
@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by Goo on 2016-8-31.
  */
-public class IntroFragmentAdapter extends FragmentPagerAdapter {
+public class IntroFragmentAdapter extends FragmentStatePagerAdapter {
 
     private List<BaseIntroFragment> mFragments = null;
 

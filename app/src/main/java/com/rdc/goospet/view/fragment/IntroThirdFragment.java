@@ -17,7 +17,6 @@ import com.rdc.goospet.utils.AppConstants;
  */
 public class IntroThirdFragment extends BaseIntroFragment {
 
-
     private int[] mAnimationViewIds = {
             R.id.iv_intro_1, R.id.iv_intro_2, R.id.iv_intro_3,
             R.id.iv_intro_4, R.id.iv_intro_5, R.id.iv_intro_6, R.id.iv_intro_7, R.id.iv_intro_8
@@ -27,6 +26,7 @@ public class IntroThirdFragment extends BaseIntroFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_intro_first, container, false);
         rootView.setTag(AppConstants.INTRO_TAG_THIRD);
+
         return rootView;
     }
 

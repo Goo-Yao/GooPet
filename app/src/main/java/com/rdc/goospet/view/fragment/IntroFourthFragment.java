@@ -17,7 +17,6 @@ import com.rdc.goospet.utils.AppConstants;
  */
 public class IntroFourthFragment extends BaseIntroFragment {
 
-
     private int[] mAnimationViewIds = {
             R.id.iv_intro_1, R.id.iv_intro_2, R.id.iv_intro_3,
             R.id.iv_intro_4, R.id.iv_intro_5, R.id.iv_intro_6, R.id.iv_intro_7, R.id.iv_intro_8

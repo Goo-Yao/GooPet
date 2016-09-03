@@ -17,7 +17,6 @@ import com.rdc.goospet.utils.AppConstants;
  */
 public class IntroFirstFragment extends BaseIntroFragment {
 
-
     private int[] mAnimationViewIds = {
             R.id.iv_intro_1, R.id.iv_intro_2, R.id.iv_intro_3,
             R.id.iv_intro_4, R.id.iv_intro_5, R.id.iv_intro_6, R.id.iv_intro_7, R.id.iv_intro_8
@@ -28,6 +27,11 @@ public class IntroFirstFragment extends BaseIntroFragment {
         View rootView = inflater.inflate(R.layout.fragment_intro_first, container, false);
         rootView.setTag(AppConstants.INTRO_TAG_FIRST);
         return rootView;
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
     }
 
     @Override
@@ -64,6 +68,7 @@ public class IntroFirstFragment extends BaseIntroFragment {
 
         };
     }
+
 
     @Override
     public int getViewTag() {
