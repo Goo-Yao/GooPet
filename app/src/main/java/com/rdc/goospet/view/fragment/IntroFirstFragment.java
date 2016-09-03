@@ -17,12 +17,10 @@ import com.rdc.goospet.utils.AppConstants;
  */
 public class IntroFirstFragment extends BaseIntroFragment {
 
-    private static final int ANIMATION_DURATION = 500;
-    private static final int ANIMATION_OFFSET = 200;
 
     private int[] mAnimationViewIds = {
             R.id.iv_intro_1, R.id.iv_intro_2, R.id.iv_intro_3,
-            R.id.iv_intro_4, R.id.iv_intro_5, R.id.iv_intro_6, R.id.iv_intro_7,
+            R.id.iv_intro_4, R.id.iv_intro_5, R.id.iv_intro_6, R.id.iv_intro_7, R.id.iv_intro_8
     };
 
     @Override
@@ -46,8 +44,8 @@ public class IntroFirstFragment extends BaseIntroFragment {
     private void initAnim(View view) {
         for (int i = 0; i < mAnimationViewIds.length; i++) {
             Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim.splash_intro_items);
-            animation.setDuration(ANIMATION_DURATION);
-            animation.setStartOffset(ANIMATION_OFFSET * i);
+            animation.setDuration(AppConstants.ANIMATION_DURATION);
+            animation.setStartOffset(AppConstants.ANIMATION_OFFSET * i);
             view.findViewById(mAnimationViewIds[i]).startAnimation(animation);
         }
     }
@@ -61,7 +59,8 @@ public class IntroFirstFragment extends BaseIntroFragment {
                 R.id.iv_intro_4,
                 R.id.iv_intro_5,
                 R.id.iv_intro_6,
-                R.id.iv_intro_7
+                R.id.iv_intro_7,
+                R.id.iv_intro_8
 
         };
     }

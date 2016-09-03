@@ -8,7 +8,34 @@
         android:id="@+id/vp_intro"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="100dp" />
+        android:paddingBottom="80dp" />
+
+    <TextSwitcher
+        android:id="@+id/ts_intro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/cpi"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/margin_l">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_s"
+            android:text="@string/intro_first"
+            android:textColor="@color/standardWhite"
+            android:textSize="@dimen/text_size_l"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_s"
+            android:textColor="@color/standardWhite"
+            android:textSize="@dimen/text_size_l"
+            android:textStyle="bold" />
+
+    </TextSwitcher>
 
     <com.rdc.goospet.view.widget.CirclePageIndicator
         android:id="@+id/cpi"
@@ -35,7 +62,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/bg_btn_selector"
+            android:background="@drawable/bg_btn_accent_selector"
             android:gravity="center"
             android:padding="10dp"
             android:text="@string/app_login"
@@ -48,7 +75,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
-            android:background="@drawable/bg_btn_selector"
+            android:background="@drawable/bg_btn_accent_selector"
             android:gravity="center"
             android:padding="10dp"
             android:text="@string/app_register"

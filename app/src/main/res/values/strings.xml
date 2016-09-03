@@ -2,5 +2,16 @@
     <string name="app_name">Goo\'s Pet</string>
     <string name="app_login">登录</string>
     <string name="app_register">注册</string>
+    <string name="intro_first">just say something 1 -- Goo</string>
+    <string name="intro_second">just say something 2 -- Goo</string>
+    <string name="intro_third">just say something 3 -- Goo</string>
+    <string name="intro_fourth">just say something 4 -- Goo</string>
 
+
+    <array name="array_intro_tips">
+        <item>@string/intro_first</item>
+        <item>@string/intro_second</item>
+        <item>@string/intro_third</item>
+        <item>@string/intro_fourth</item>
+    </array>
 </resources>

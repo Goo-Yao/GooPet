@@ -3,6 +3,7 @@ package com.rdc.goospet.listener;
 import android.animation.ArgbEvaluator;
 import android.content.res.Resources;
 import android.support.v4.view.ViewPager;
+import android.widget.TextSwitcher;
 
 import com.rdc.goospet.R;
 
@@ -18,16 +19,21 @@ public class IntroPageChangedListener implements ViewPager.OnPageChangeListener 
 
     private ViewPager mVp;
 
-    public IntroPageChangedListener(ViewPager vp, int pageWidth, int pageNum, Resources resources) {
+    private TextSwitcher mTSwitcher;
+    private String[] mIntroTips;
+
+    public IntroPageChangedListener(ViewPager vp, TextSwitcher tSwitcher, int pageWidth, int pageNum, Resources resources) {
         mVp = vp;
+        mTSwitcher = tSwitcher;
         mColorEvaluator = new ArgbEvaluator();
 
         mPageWidth = pageWidth;
         mTotalScrollWidth = mPageWidth * pageNum;
 
         mGuideStartBackgroundColor = resources.getColor(R.color.colorPrimary);
-        mGuideEndBackgroundColor = resources.getColor(R.color.colorLightPrimary);
+        mGuideEndBackgroundColor = resources.getColor(R.color.colorPrimaryDark);
 
+        mIntroTips = resources.getStringArray(R.array.array_intro_tips);
     }
 
     @Override
@@ -39,6 +45,7 @@ public class IntroPageChangedListener implements ViewPager.OnPageChangeListener 
 
     @Override
     public void onPageSelected(int position) {
+        mTSwitcher.setText(mIntroTips[position]);
     }
 
     @Override

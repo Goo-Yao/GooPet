@@ -12,12 +12,19 @@
         android:layout_marginTop="@dimen/margin_m">
 
         <ImageView
+            android:id="@+id/iv_intro_8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_intro_first_08" />
+
+        <ImageView
             android:id="@+id/iv_intro_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="@dimen/margin_xl"
+            android:layout_marginLeft="@dimen/margin_xxl"
             android:layout_marginTop="@dimen/margin_xl"
             android:src="@drawable/ic_intro_first_01" />
 
@@ -25,9 +32,9 @@
             android:id="@+id/iv_intro_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/iv_intro_1"
-            android:layout_marginTop="@dimen/margin_l"
+            android:layout_marginLeft="@dimen/margin_xxl"
+            android:layout_marginTop="@dimen/margin_s"
+            android:layout_toRightOf="@+id/iv_intro_1"
             android:src="@drawable/ic_intro_first_02" />
 
         <ImageView
@@ -35,9 +42,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/iv_intro_2"
-            android:layout_marginLeft="@dimen/margin_xxl"
-            android:layout_marginTop="@dimen/margin_xxl"
+            android:layout_below="@+id/iv_intro_1"
+            android:layout_marginLeft="@dimen/margin_l"
             android:src="@drawable/ic_intro_first_03" />
 
         <ImageView
@@ -45,9 +51,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/iv_intro_2"
-            android:layout_marginLeft="@dimen/margin_xxl"
+            android:layout_marginLeft="@dimen/margin_xl"
             android:layout_marginRight="@dimen/margin_xl"
-            android:layout_marginTop="@dimen/margin_l"
+            android:layout_marginTop="@dimen/margin_xl"
             android:layout_toRightOf="@+id/iv_intro_3"
             android:src="@drawable/ic_intro_first_04" />
 
@@ -55,29 +61,29 @@
             android:id="@+id/iv_intro_5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/iv_intro_1"
-            android:layout_marginLeft="@dimen/margin_xl"
-            android:layout_marginTop="@dimen/margin_xxl"
-            android:layout_toRightOf="@+id/iv_intro_2"
+            android:layout_below="@+id/iv_intro_2"
+            android:layout_marginLeft="@dimen/margin_l"
+            android:layout_toRightOf="@+id/iv_intro_4"
             android:src="@drawable/ic_intro_first_05" />
 
         <ImageView
             android:id="@+id/iv_intro_6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/iv_intro_5"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/iv_intro_3"
             android:layout_marginLeft="@dimen/margin_xxl"
-            android:layout_toRightOf="@+id/iv_intro_1"
+            android:layout_marginTop="@dimen/margin_l"
             android:src="@drawable/ic_intro_first_06" />
 
         <ImageView
             android:id="@+id/iv_intro_7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/iv_intro_4"
-            android:layout_marginBottom="@dimen/margin_l"
-            android:layout_marginLeft="@dimen/margin_xl"
-            android:layout_toRightOf="@id/iv_intro_5"
+            android:layout_below="@+id/iv_intro_4"
+            android:layout_marginLeft="@dimen/margin_xxl"
+            android:layout_marginTop="@dimen/margin_l"
+            android:layout_toRightOf="@id/iv_intro_6"
             android:src="@drawable/ic_intro_first_07" />
 
 

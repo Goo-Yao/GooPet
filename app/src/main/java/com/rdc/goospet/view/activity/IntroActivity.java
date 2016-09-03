@@ -2,6 +2,7 @@ package com.rdc.goospet.view.activity;
 
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.widget.TextSwitcher;
 import android.widget.TextView;
 
 import com.rdc.goospet.R;
@@ -20,7 +21,9 @@ public class IntroActivity extends BaseActivity<IntroVInterface, IntroPresenter>
     private ViewPager mVpIntro;
     private CirclePageIndicator mIndicator;
     private IntroFragmentAdapter mPagerAdapter;
+
     private TextView mTvLogin, mTvRegister;
+    private TextSwitcher mTSwitcher;
 
 
     @Override
@@ -43,15 +46,21 @@ public class IntroActivity extends BaseActivity<IntroVInterface, IntroPresenter>
     protected void initView() {
         findAllViewById();
         setAllClickListener();
-        mPagerAdapter = mPresenter.getPagerAdapter(getSupportFragmentManager());
+        initVp();
+        initIndicator();
+    }
 
+    private void initVp() {
+        mPagerAdapter = mPresenter.getPagerAdapter(getSupportFragmentManager());
         mVpIntro.setAdapter(mPagerAdapter);
         mVpIntro.setPageTransformer(true, mPresenter.getTransformer());
+    }
 
+    private void initIndicator() {
         mIndicator.setViewPager(mVpIntro);
         mIndicator.setPageColor(getResources().getColor(R.color.standardWhite));
         mIndicator.setFillColor(getResources().getColor(R.color.colorAccent));
-        mIndicator.setOnPageChangeListener(new IntroPageChangedListener(mVpIntro, getWindowManager().getDefaultDisplay().getWidth(), mPagerAdapter.getCount(), getResources()));
+        mIndicator.setOnPageChangeListener(new IntroPageChangedListener(mVpIntro, mTSwitcher, getWindowManager().getDefaultDisplay().getWidth(), mPagerAdapter.getCount(), getResources()));
     }
 
     private void setAllClickListener() {
@@ -65,6 +74,7 @@ public class IntroActivity extends BaseActivity<IntroVInterface, IntroPresenter>
         mIndicator = $(R.id.cpi);
         mTvLogin = $(R.id.tv_login);
         mTvRegister = $(R.id.tv_register);
+        mTSwitcher = $(R.id.ts_intro);
     }
 
     @Override
