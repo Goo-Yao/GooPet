@@ -6,6 +6,7 @@ import android.support.v4.view.ViewPager;
 import android.widget.TextSwitcher;
 
 import com.rdc.goospet.R;
+import com.rdc.goospet.utils.AppConstants;
 
 /**
  * Created by Goo on 2016-9-2.
@@ -30,8 +31,8 @@ public class IntroPageChangedListener implements ViewPager.OnPageChangeListener 
         mPageWidth = pageWidth;
         mTotalScrollWidth = mPageWidth * pageNum;
 
-        mGuideStartBackgroundColor = resources.getColor(R.color.colorPrimary);
-        mGuideEndBackgroundColor = resources.getColor(R.color.colorPrimaryDark);
+        mGuideStartBackgroundColor = resources.getColor(AppConstants.INTRO_START_COLOR);
+        mGuideEndBackgroundColor = resources.getColor(AppConstants.INTRO_END_COLOR);
 
         mIntroTips = resources.getStringArray(R.array.array_intro_tips);
     }

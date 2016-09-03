@@ -1,5 +1,7 @@
 package com.rdc.goospet.utils;
 
+import com.rdc.goospet.R;
+
 /**
  * Created by Goo on 2016-8-28.
  */
@@ -12,9 +14,13 @@ public class AppConstants {
     public static final int INTRO_TAG_THIRD = 3456;
     public static final int INTRO_TAG_FOURTH = 4567;
 
-    public static final float PARALLAX_COEFFICIENT = 1.1f;//整体视差系数
-    public static final float DISTANCE_COEFFICIENT = 1.2f;//相对视差系数
+    public static final float PARALLAX_COEFFICIENT = 1.2f;//视差系数
+    public static final float DISTANCE_COEFFICIENT = 0.8f;//距离系数
 
-    public static final int ANIMATION_DURATION = 500;
-    public static final int ANIMATION_OFFSET = 50;
+    public static final int INTRO_ANIMATION_DURATION = 500;
+    public static final int INTRO_ANIMATION_OFFSET = 50;
+
+    public static final int INTRO_START_COLOR = R.color.colorPrimaryDark;
+    public static final int INTRO_END_COLOR = R.color.colorIntroLightPrimary;
+
 }

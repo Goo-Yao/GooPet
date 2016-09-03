@@ -44,8 +44,8 @@ public class IntroFourthFragment extends BaseIntroFragment {
     private void initAnim(View view) {
         for (int i = 0; i < mAnimationViewIds.length; i++) {
             Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim.splash_intro_items);
-            animation.setDuration(AppConstants.ANIMATION_DURATION);
-            animation.setStartOffset(AppConstants.ANIMATION_OFFSET * i);
+            animation.setDuration(AppConstants.INTRO_ANIMATION_DURATION);
+            animation.setStartOffset(AppConstants.INTRO_ANIMATION_OFFSET * i);
             view.findViewById(mAnimationViewIds[i]).startAnimation(animation);
         }
     }

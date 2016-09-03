@@ -24,7 +24,7 @@ import static android.widget.LinearLayout.VERTICAL;
 
 /**
  * from Android ViewPagerIndicator
- * <p>
+ * <p/>
  * Created by Goo on 2016-8-31.
  */
 public class CirclePageIndicator extends View implements PageIndicator {

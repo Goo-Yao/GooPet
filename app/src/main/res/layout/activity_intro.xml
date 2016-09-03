@@ -12,25 +12,31 @@
 
     <TextSwitcher
         android:id="@+id/ts_intro"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/cpi"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/margin_l">
+        android:layout_marginBottom="@dimen/margin_l"
+        android:inAnimation="@anim/slide_in"
+        android:outAnimation="@anim/slide_out">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_margin="@dimen/margin_s"
+            android:gravity="center"
             android:text="@string/intro_first"
             android:textColor="@color/standardWhite"
             android:textSize="@dimen/text_size_l"
             android:textStyle="bold" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_margin="@dimen/margin_s"
+            android:gravity="center"
             android:textColor="@color/standardWhite"
             android:textSize="@dimen/text_size_l"
             android:textStyle="bold" />
