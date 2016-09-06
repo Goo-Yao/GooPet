@@ -1,5 +1,6 @@
 package com.rdc.goospet.base;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import com.rdc.goospet.utils.AppConstants;
 public abstract class BaseActivity<V, P extends BasePresenter<V>> extends AppCompatActivity {
     protected Toolbar toolbar;
     protected P mPresenter;
+    private ProgressDialog mProgressDialog;
 
 
     @Override
@@ -142,5 +144,23 @@ public abstract class BaseActivity<V, P extends BasePresenter<V>> extends AppCom
     protected <T extends View> T $(int viewId) {
         return (T) findViewById(viewId);
     }
+
+
+    protected void showProgressDialog(String msg) {
+        if (mProgressDialog == null)
+            mProgressDialog = new ProgressDialog(this);
+        mProgressDialog.setMessage(msg);
+        //可取消
+        mProgressDialog.setCancelable(true);
+        //不显示进度
+        mProgressDialog.setIndeterminate(false);
+        mProgressDialog.show();
+    }
+
+    protected void dismissProgressDialog() {
+        if (mProgressDialog != null && mProgressDialog.isShowing())
+            mProgressDialog.dismiss();
+    }
+
 
 }

@@ -6,6 +6,16 @@
     <string name="intro_second">我很笨，没有很大很大的梦想，\n只希望能跟你在一起。</string>
     <string name="intro_third">你是我的注定，我要努力，\n有朝一日成为你的得力助手！</string>
     <string name="intro_fourth">我们的故事，\n即刻开始。</string>
+    <string name="intro_dialog_login_btn">登录</string>
+    <string name="intro_dialog_psw">密码</string>
+    <string name="intro_dialog_psw_again">再输一次密码</string>
+    <string name="intro_dialog_account">用户名</string>
+    <string name="intro_dialog_social_login">社交帐号登录</string>
+    <string name="intro_dialog_register_btn">注册</string>
+    <string name="error_empty_info">请完整填写信息</string>
+    <string name="error_psw_not_equal">两次输入密码不相同</string>
+    <string name="error_email_invalid">请输入正确的邮箱</string>
+    <string name="tips_net_working">网络连接中，请稍候</string>
 
 
     <array name="array_intro_tips">

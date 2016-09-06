@@ -1,7 +1,6 @@
 package com.rdc.goospet.view.activity;
 
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,11 +14,14 @@ import com.rdc.goospet.adapter.IntroFragmentAdapter;
 import com.rdc.goospet.base.BaseActivity;
 import com.rdc.goospet.listener.IntroPageChangedListener;
 import com.rdc.goospet.presenter.IntroPresenter;
+import com.rdc.goospet.utils.DialogUtils;
+import com.rdc.goospet.utils.ToastUtil;
 import com.rdc.goospet.view.vinterface.IntroVInterface;
 import com.rdc.goospet.view.widget.CirclePageIndicator;
 
 /**
  * Created by Goo on 2016-8-28.
+ * 介绍界面（界面设计暂定）
  */
 public class IntroActivity extends BaseActivity<IntroVInterface, IntroPresenter> implements IntroVInterface, View.OnClickListener {
 
@@ -27,10 +29,11 @@ public class IntroActivity extends BaseActivity<IntroVInterface, IntroPresenter>
     private CirclePageIndicator mIndicator;
     private IntroFragmentAdapter mPagerAdapter;
 
-    private TextView mTvIntroLogin, mTvIntroRegister, mTvLogin, mTvSocialLogin;
+    private TextView mTvIntroLogin, mTvIntroRegister;
+    private TextView mTvLogin, mTvSocialLogin, mTvRegister;
     private TextSwitcher mTSwitcher;
 
-    private EditText mEtAccount, mEtPsw;
+    private EditText mEtAccount, mEtPsw, mEtRAccount, mEtREmail, mEtRPsw, mEtRPswAgain;
 
 
     @Override
@@ -92,29 +95,97 @@ public class IntroActivity extends BaseActivity<IntroVInterface, IntroPresenter>
                 showLoginDialog();
                 break;
             case R.id.tv_intro_register:
-
+                showRegisterDialog();
+                break;
+            case R.id.tv_login:
+                break;
+            case R.id.tv_social_login:
+                break;
+            case R.id.tv_register:
                 break;
         }
     }
 
+
     private void showLoginDialog() {
         LayoutInflater inflater = getLayoutInflater();
         View loginDialog = inflater.inflate(R.layout.layout_dialog_login, (ViewGroup) findViewById(R.id.ll_dialog));
+
         mEtAccount = (MaterialEditText) loginDialog.findViewById(R.id.et_account);
         mEtPsw = (MaterialEditText) loginDialog.findViewById(R.id.et_psw);
         mTvLogin = (TextView) loginDialog.findViewById(R.id.tv_login);
         mTvSocialLogin = (TextView) loginDialog.findViewById(R.id.tv_social_login);
         mTvLogin.setOnClickListener(this);
         mTvSocialLogin.setOnClickListener(this);
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("登录");
-        builder.setView(loginDialog);
-        builder.show();
 
+        DialogUtils.showCoustomDialog(this, loginDialog, "登录");
 
     }
 
     private void showRegisterDialog() {
 
+        LayoutInflater inflater = getLayoutInflater();
+        View registerDialog = inflater.inflate(R.layout.layout_dialog_register, (ViewGroup) findViewById(R.id.ll_dialog));
+
+        mTvRegister = (TextView) registerDialog.findViewById(R.id.tv_register);
+        mEtRAccount = (EditText) registerDialog.findViewById(R.id.et_register_account);
+        mEtREmail = (EditText) registerDialog.findViewById(R.id.et_register_email);
+        mEtPsw = (EditText) registerDialog.findViewById(R.id.et_register_psw);
+        mEtRPswAgain = (EditText) registerDialog.findViewById(R.id.et_register_psw_again);
+        mTvRegister.setOnClickListener(this);
+
+        DialogUtils.showCoustomDialog(this, registerDialog, "注册");
     }
+
+    @Override
+    public void showProgressDialog() {
+        super.showProgressDialog(getString(R.string.tips_net_working));
+    }
+
+    @Override
+    public void dismissDialog() {
+        super.dismissProgressDialog();
+    }
+
+    @Override
+    public void registerSuccess() {
+
+    }
+
+    @Override
+    public void loginSuccess() {
+
+    }
+
+    @Override
+    public void errorEmptyInfo() {
+        ToastUtil.showToast(this, getString(R.string.error_empty_info));
+    }
+
+    @Override
+    public void errorPswNotEqual() {
+        ToastUtil.showToast(this, getString(R.string.error_psw_not_equal));
+    }
+
+    @Override
+    public void errorEmailInvalid() {
+        ToastUtil.showToast(this, getString(R.string.error_email_invalid));
+    }
+
+    @Override
+    public void errorUserNameRepeat() {
+
+    }
+
+    @Override
+    public void errorEmailRepeat() {
+
+    }
+
+    @Override
+    public void errorNetWork() {
+
+    }
+
+
 }

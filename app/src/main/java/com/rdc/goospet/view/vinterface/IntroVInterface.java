@@ -5,4 +5,24 @@ package com.rdc.goospet.view.vinterface;
  */
 public interface IntroVInterface {
 
+    void showProgressDialog();
+
+    void dismissDialog();
+
+    void registerSuccess();
+
+    void loginSuccess();
+
+    void errorEmptyInfo();
+
+    void errorPswNotEqual();
+
+    void errorEmailInvalid();
+
+    void errorUserNameRepeat();
+
+    void errorEmailRepeat();
+
+    void errorNetWork();
+
 }

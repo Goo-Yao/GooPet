@@ -8,7 +8,7 @@
     android:padding="5dp">
 
     <MaterialEditText
-        android:id="@+id/et_account"
+        android:id="@+id/et_register_account"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/margin_xl"
@@ -20,7 +20,19 @@
         app:floatingLabel="true" />
 
     <MaterialEditText
-        android:id="@+id/et_psw"
+        android:id="@+id/et_register_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_xl"
+        android:layout_marginRight="@dimen/margin_xl"
+        android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@."
+        android:hint="@string/intro_dialog_psw"
+        android:singleLine="true"
+        app:backgroundColor="@color/colorPrimary"
+        app:floatingLabel="true" />
+
+    <MaterialEditText
+        android:id="@+id/et_register_psw"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/margin_xl"
@@ -32,6 +44,20 @@
         app:backgroundColor="@color/colorPrimary"
         app:floatingLabel="true" />
 
+    <MaterialEditText
+        android:id="@+id/et_register_psw_again"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_xl"
+        android:layout_marginRight="@dimen/margin_xl"
+        android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@."
+        android:hint="@string/intro_dialog_psw_again"
+        android:inputType="textPassword"
+        android:singleLine="true"
+        app:backgroundColor="@color/colorPrimary"
+        app:floatingLabel="true" />
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -42,24 +68,15 @@
         android:gravity="end"
         android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/tv_social_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_btn_light_selector"
-            android:padding="5dp"
-            android:text="@string/intro_dialog_social_login"
-            android:textColor="@color/textPrimaryColor"
-            android:textSize="@dimen/text_size_m" />
 
         <TextView
-            android:id="@+id/tv_login"
+            android:id="@+id/tv_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_xl"
             android:background="@drawable/bg_btn_light_selector"
             android:padding="5dp"
-            android:text="@string/intro_dialog_login_btn"
+            android:text="@string/intro_dialog_register_btn"
             android:textColor="@color/colorPrimary"
             android:textSize="@dimen/text_size_m" />
     </LinearLayout>

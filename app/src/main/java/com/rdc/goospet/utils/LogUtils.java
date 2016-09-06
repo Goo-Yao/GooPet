@@ -4,6 +4,7 @@ import android.util.Log;
 
 /**
  * Created by Goo on 2016-8-28.
+ * Log 工具类
  */
 public class LogUtils {
     private final static String TAG = "Goo's Pet";
