@@ -1,5 +1,6 @@
 package com.rdc.goospet.view.activity;
 
+import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +15,9 @@ import com.rdc.goospet.adapter.IntroFragmentAdapter;
 import com.rdc.goospet.base.BaseActivity;
 import com.rdc.goospet.listener.IntroPageChangedListener;
 import com.rdc.goospet.presenter.IntroPresenter;
+import com.rdc.goospet.utils.AppConstants;
 import com.rdc.goospet.utils.DialogUtils;
+import com.rdc.goospet.utils.SpUtils;
 import com.rdc.goospet.utils.ToastUtil;
 import com.rdc.goospet.view.vinterface.IntroVInterface;
 import com.rdc.goospet.view.widget.CirclePageIndicator;
@@ -98,10 +101,12 @@ public class IntroActivity extends BaseActivity<IntroVInterface, IntroPresenter>
                 showRegisterDialog();
                 break;
             case R.id.tv_login:
+                mPresenter.login(mEtAccount.getText().toString(), mEtPsw.getText().toString());
                 break;
             case R.id.tv_social_login:
                 break;
             case R.id.tv_register:
+                mPresenter.register(mEtRAccount.getText().toString(), mEtREmail.getText().toString(), mEtRPsw.getText().toString(), mEtRPswAgain.getText().toString());
                 break;
         }
     }
@@ -130,7 +135,7 @@ public class IntroActivity extends BaseActivity<IntroVInterface, IntroPresenter>
         mTvRegister = (TextView) registerDialog.findViewById(R.id.tv_register);
         mEtRAccount = (EditText) registerDialog.findViewById(R.id.et_register_account);
         mEtREmail = (EditText) registerDialog.findViewById(R.id.et_register_email);
-        mEtPsw = (EditText) registerDialog.findViewById(R.id.et_register_psw);
+        mEtRPsw = (EditText) registerDialog.findViewById(R.id.et_register_psw);
         mEtRPswAgain = (EditText) registerDialog.findViewById(R.id.et_register_psw_again);
         mTvRegister.setOnClickListener(this);
 
@@ -148,13 +153,20 @@ public class IntroActivity extends BaseActivity<IntroVInterface, IntroPresenter>
     }
 
     @Override
-    public void registerSuccess() {
+    public void registerSuccess(String userName) {
+        ToastUtil.showToast(this, getString(R.string.tips_register_success));
+        EnterMain(userName);
 
     }
 
     @Override
-    public void loginSuccess() {
+    public void loginSuccess(String userName) {
+        EnterMain(userName);
+    }
 
+    @Override
+    public void errorLoginFail() {
+        ToastUtil.showToast(this, getString(R.string.tips_error_login));
     }
 
     @Override
@@ -174,17 +186,31 @@ public class IntroActivity extends BaseActivity<IntroVInterface, IntroPresenter>
 
     @Override
     public void errorUserNameRepeat() {
+        ToastUtil.showToast(this, getString(R.string.error_username_repeat));
 
     }
 
     @Override
     public void errorEmailRepeat() {
-
+        ToastUtil.showToast(this, getString(R.string.error_email_repeat));
     }
 
     @Override
     public void errorNetWork() {
+        ToastUtil.showToast(this, getString(R.string.error_network));
+    }
 
+    /**
+     * 进入主界面
+     *
+     * @param userName
+     */
+    private void EnterMain(String userName) {
+        Intent intent = new Intent(IntroActivity.this, MainActivity.class);
+        startActivity(intent);
+        SpUtils.setParam(this, "userName", userName);
+        finish();
+        setPendingTransition(AppConstants.OPEN_PENDING_TRANSITION);
     }
 
 

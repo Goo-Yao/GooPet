@@ -9,9 +9,11 @@ public interface IntroVInterface {
 
     void dismissDialog();
 
-    void registerSuccess();
+    void registerSuccess(String userName);
 
-    void loginSuccess();
+    void loginSuccess(String userName);
+
+    void errorLoginFail();
 
     void errorEmptyInfo();
 

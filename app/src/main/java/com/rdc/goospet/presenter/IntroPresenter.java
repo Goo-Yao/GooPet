@@ -1,9 +1,10 @@
 package com.rdc.goospet.presenter;
 
-import android.content.Context;
 import android.support.v4.app.FragmentManager;
 
 import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVUser;
+import com.avos.avoscloud.LogInCallback;
 import com.avos.avoscloud.SignUpCallback;
 import com.rdc.goospet.adapter.IntroFragmentAdapter;
 import com.rdc.goospet.base.BasePresenter;
@@ -42,8 +43,28 @@ public class IntroPresenter extends BasePresenter<IntroVInterface> {
         return new ParallaxTransformer(AppConstants.PARALLAX_COEFFICIENT, AppConstants.DISTANCE_COEFFICIENT, mModel.getLayoutViewIdsMap());
     }
 
-    public void register(Context context, String account, String email, String psw, String pswAgain) {
-        if (account.isEmpty() || email.isEmpty() || psw.isEmpty() || pswAgain.isEmpty()) {
+    public void login(final String userName, String psw) {
+        if (userName.isEmpty() || psw.isEmpty()) {
+            view.errorEmptyInfo();
+        } else {
+            view.showProgressDialog();
+            AVUser.logInInBackground(userName, psw, new LogInCallback<AVUser>() {
+                @Override
+                public void done(AVUser avUser, AVException e) {
+                    view.dismissDialog();
+                    if (avUser != null) {
+                        view.loginSuccess(avUser.getUsername());
+                    } else {
+                        view.errorLoginFail();
+                    }
+                }
+            });
+        }
+
+    }
+
+    public void register(final String userName, String email, String psw, String pswAgain) {
+        if (userName.isEmpty() || email.isEmpty() || psw.isEmpty() || pswAgain.isEmpty()) {
             view.errorEmptyInfo();
         } else if (!psw.equals(pswAgain)) {
             view.errorPswNotEqual();
@@ -51,28 +72,24 @@ public class IntroPresenter extends BasePresenter<IntroVInterface> {
             view.errorEmailInvalid();
         } else {
             view.showProgressDialog();
-            AVOSUtils.signUp(account, psw, email, new SignUpCallback() {
+            AVOSUtils.signUp(userName, psw, email, new SignUpCallback() {
                 @Override
                 public void done(AVException e) {
                     view.dismissDialog();
                     if (e == null) {
-                        view.registerSuccess();
+                        view.registerSuccess(userName);
                     } else {
-//                        switch (e.getCode()) {
-//                            case 202:
-//
-//                                showError(activity
-//                                        .getString(R.string.error_register_user_name_repeat));
-//                                break;
-//                            case 203:
-//                                showError(activity
-//                                        .getString(R.string.error_register_email_repeat));
-//                                break;
-//                            default:
-//                                showError(activity
-//                                        .getString(R.string.network_error));
-//                                break;
-//                        }
+                        switch (e.getCode()) {
+                            case 202:
+                                view.errorUserNameRepeat();
+                                break;
+                            case 203:
+                                view.errorEmailRepeat();
+                                break;
+                            default:
+                                view.errorNetWork();
+                                break;
+                        }
                     }
                 }
             });

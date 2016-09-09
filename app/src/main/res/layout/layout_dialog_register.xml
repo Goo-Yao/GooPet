@@ -26,7 +26,7 @@
         android:layout_marginLeft="@dimen/margin_xl"
         android:layout_marginRight="@dimen/margin_xl"
         android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@."
-        android:hint="@string/intro_dialog_psw"
+        android:hint="@string/intro_dialog_email"
         android:singleLine="true"
         app:backgroundColor="@color/colorPrimary"
         app:floatingLabel="true" />
