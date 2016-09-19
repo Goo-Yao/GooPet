@@ -21,9 +21,11 @@ public class AppConstants {
     public static final int INTRO_ANIMATION_DURATION = 500;//动画时间
     public static final int INTRO_ANIMATION_OFFSET = 50;//动画间隔
 
-    public static final int INTRO_START_COLOR = R.color.colorPrimaryDark;
-    public static final int INTRO_END_COLOR = R.color.colorIntroLightPrimary;
+    public static final int INTRO_START_COLOR = R.color.colorIntroLightPrimary;
+    public static final int INTRO_END_COLOR = R.color.lightOrange;
 
     public static final String REGEX_EMAIL = "^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$";
+
+    public static String USER_NAME = null;
 
 }

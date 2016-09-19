@@ -17,7 +17,6 @@ import com.rdc.goospet.listener.IntroPageChangedListener;
 import com.rdc.goospet.presenter.IntroPresenter;
 import com.rdc.goospet.utils.AppConstants;
 import com.rdc.goospet.utils.DialogUtils;
-import com.rdc.goospet.utils.SpUtils;
 import com.rdc.goospet.utils.ToastUtil;
 import com.rdc.goospet.view.vinterface.IntroVInterface;
 import com.rdc.goospet.view.widget.CirclePageIndicator;
@@ -206,11 +205,11 @@ public class IntroActivity extends BaseActivity<IntroVInterface, IntroPresenter>
      * @param userName
      */
     private void EnterMain(String userName) {
+        AppConstants.USER_NAME = userName;
         Intent intent = new Intent(IntroActivity.this, MainActivity.class);
         startActivity(intent);
-        SpUtils.setParam(this, "userName", userName);
-        finish();
         setPendingTransition(AppConstants.OPEN_PENDING_TRANSITION);
+        finish();
     }
 
 

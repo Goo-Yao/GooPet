@@ -18,4 +18,10 @@
     <dimen name="text_size_s">14sp</dimen>
     <dimen name="text_size_ms">12sp</dimen>
 
+    <!--pet 桌面控件大小-->
+    <dimen name="size_widget_pet_height">84dp</dimen>
+    <dimen name="size_widget_pet_width">84dp</dimen>
+
+    <integer name="updatePeriodMillis">60000</integer>
+
 </resources>

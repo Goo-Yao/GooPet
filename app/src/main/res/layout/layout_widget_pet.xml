@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_pet"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".view.activity.MainActivity">
+    android:background="@color/standardWhite"
+    android:gravity="center"
+    android:orientation="vertical">
 
-    <include layout="@layout/layout_toolbar" />
-
-    <Button
-        android:id="@+id/btn_show"
+    <ImageView
+        android:id="@+id/iv_pet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="showPet" />
-
+        tools:src="@drawable/ic_intro_first_sun" />
 
 </LinearLayout>

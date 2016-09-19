@@ -14,5 +14,10 @@
     <!--standardColor-->
     <color name="standardWhite">#ffffff</color>
     <color name="standardBlack">#000000</color>
+
+
+    <!--extractColor-->
+    <color name="lightOrange">#4CAF50</color>
     <color name="transparent">#00000000</color>
+    <color name="halfTransparent">#40FFFFFF</color>
 </resources>
