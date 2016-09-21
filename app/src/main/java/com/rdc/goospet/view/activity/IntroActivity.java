@@ -2,6 +2,7 @@ package com.rdc.goospet.view.activity;
 
 import android.content.Intent;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +37,8 @@ public class IntroActivity extends BaseActivity<IntroVInterface, IntroPresenter>
     private TextSwitcher mTSwitcher;
 
     private EditText mEtAccount, mEtPsw, mEtRAccount, mEtREmail, mEtRPsw, mEtRPswAgain;
+
+    private AlertDialog mLoginDialog, mRegisterDialog = null;
 
 
     @Override
@@ -100,6 +103,7 @@ public class IntroActivity extends BaseActivity<IntroVInterface, IntroPresenter>
                 showRegisterDialog();
                 break;
             case R.id.tv_login:
+                dismissDialog();
                 mPresenter.login(mEtAccount.getText().toString(), mEtPsw.getText().toString());
                 break;
             case R.id.tv_social_login:
@@ -122,7 +126,7 @@ public class IntroActivity extends BaseActivity<IntroVInterface, IntroPresenter>
         mTvLogin.setOnClickListener(this);
         mTvSocialLogin.setOnClickListener(this);
 
-        DialogUtils.showCoustomDialog(this, loginDialog, "登录");
+        mLoginDialog = DialogUtils.showCoustomDialog(this, loginDialog, "登录");
 
     }
 
@@ -138,7 +142,7 @@ public class IntroActivity extends BaseActivity<IntroVInterface, IntroPresenter>
         mEtRPswAgain = (EditText) registerDialog.findViewById(R.id.et_register_psw_again);
         mTvRegister.setOnClickListener(this);
 
-        DialogUtils.showCoustomDialog(this, registerDialog, "注册");
+        mRegisterDialog = DialogUtils.showCoustomDialog(this, registerDialog, "注册");
     }
 
     @Override
@@ -212,5 +216,14 @@ public class IntroActivity extends BaseActivity<IntroVInterface, IntroPresenter>
         finish();
     }
 
-
+    @Override
+    protected void onDestroy() {
+        if (mLoginDialog != null) {
+            mLoginDialog.dismiss();
+        }
+        if (mRegisterDialog != null) {
+            mRegisterDialog.dismiss();
+        }
+        super.onDestroy();
+    }
 }

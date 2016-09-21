@@ -31,6 +31,8 @@
             </intent-filter>
 
         </activity>
+
+        <service android:name=".service.FloatingPetService" />
     </application>
 
 </manifest>

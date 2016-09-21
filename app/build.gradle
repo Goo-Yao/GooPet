@@ -37,4 +37,5 @@ dependencies {
     compile ('cn.leancloud.android:avoscloud-sdk:v3.+')
     // LeanCloud 统计包
     compile ('cn.leancloud.android:avoscloud-statistics:v3.+')
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha8'
 }

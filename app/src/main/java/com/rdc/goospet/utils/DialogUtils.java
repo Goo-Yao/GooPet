@@ -9,10 +9,10 @@ import android.view.View;
  * 对话框工具类
  */
 public class DialogUtils {
-    public static void showCoustomDialog(Context context, View dialog, String title) {
+    public static AlertDialog showCoustomDialog(Context context, View dialog, String title) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle(title);
         builder.setView(dialog);
-        builder.show();
+        return builder.show();
     }
 }

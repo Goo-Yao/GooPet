@@ -1,11 +1,13 @@
 package com.rdc.goospet.view.activity;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 
 import com.rdc.goospet.R;
 import com.rdc.goospet.base.BaseActivity;
 import com.rdc.goospet.presenter.MainPresenter;
+import com.rdc.goospet.service.FloatingPetService;
 import com.rdc.goospet.view.vinterface.MainVInterface;
 
 public class MainActivity extends BaseActivity<MainVInterface, MainPresenter> implements MainVInterface, View.OnClickListener {
@@ -42,10 +44,16 @@ public class MainActivity extends BaseActivity<MainVInterface, MainPresenter> im
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_show:
-//启动悬浮pet
-//                Intent intent = new Intent(MainActivity.this,. class);
-//                startService(intent);
+                //启动悬浮pet
+                Intent intent = new Intent(MainActivity.this, FloatingPetService.class);
+                startService(intent);
                 break;
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+//        stopService()
+        super.onDestroy();
     }
 }

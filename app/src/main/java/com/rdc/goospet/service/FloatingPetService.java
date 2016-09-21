@@ -8,6 +8,7 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 
 import com.rdc.goospet.utils.FloatingRefreshTask;
+import com.rdc.goospet.utils.LogUtils;
 
 import java.util.Timer;
 
@@ -24,7 +25,14 @@ public class FloatingPetService extends Service {
     }
 
     @Override
+    public void onCreate() {
+        LogUtils.e("FloatingPetService - onCreate");
+        super.onCreate();
+    }
+
+    @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        LogUtils.e("FloatingPetService - onStartCommand");
         if (mTimer == null) {
             mTimer = new Timer();
             mTimer.scheduleAtFixedRate(new FloatingRefreshTask(this.getPackageManager(), (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE), getApplicationContext()), 0, 500);
@@ -34,6 +42,7 @@ public class FloatingPetService extends Service {
 
     @Override
     public void onDestroy() {
+        LogUtils.e("FloatingPetService - onDestroy");
         mTimer.cancel();
         mTimer = null;
         super.onDestroy();

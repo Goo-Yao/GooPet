@@ -31,7 +31,17 @@ public class FloatingPetView extends LinearLayout {
 
     public FloatingPetView(Context context) {
         super(context);
-        mWindowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        initView(context);
+
+
+    }
+
+    /**
+     * 初始化视图
+     *
+     * @param context
+     */
+    private void initView(Context context) {
         LayoutInflater.from(context).inflate(R.layout.layout_widget_pet, this);
 
         View view = findViewById(R.id.ll_pet);
@@ -39,11 +49,11 @@ public class FloatingPetView extends LinearLayout {
         viewHeight = view.getLayoutParams().height;
 
         mIvPet = (ImageView) findViewById(R.id.iv_pet);
-        setPetImg(R.drawable.ic_intro_first_sun);
-
+        setPetImg(R.drawable.ic_face_01);
 
         //获取屏幕大小
         DisplayMetrics dm = new DisplayMetrics();
+        mWindowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         mWindowManager.getDefaultDisplay().getMetrics(dm);
         statusBarHeight = FloatingUtils.getStatusBarHeight(this);
         if (statusBarHeight != -1) {
@@ -52,11 +62,10 @@ public class FloatingPetView extends LinearLayout {
         } else {
             LogUtils.e("statusBarHeight = -1");
         }
-
     }
 
     /**
-     * 设置宠物图片
+     * 设置宠物样式
      *
      * @param resid
      */
@@ -64,10 +73,26 @@ public class FloatingPetView extends LinearLayout {
         mIvPet.setBackgroundResource(resid);
     }
 
+    /**
+     * 将小悬浮窗的参数传入，用于更新小悬浮窗的位置。
+     *
+     * @param params 小悬浮窗的参数
+     */
+    public void setParams(WindowManager.LayoutParams params) {
+        mParams = params;
+    }
+
+    /**
+     * 触摸事件
+     *
+     * @param event
+     * @return
+     */
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
+
                 // 记录必要数据,纵坐标的值要减去状态栏高度
                 // 动画逻辑处理 - 停止正在播放的动画，触发拎起动画
                 xInView = event.getX();
@@ -76,6 +101,7 @@ public class FloatingPetView extends LinearLayout {
                 yDownInScreen = event.getRawY() - FloatingUtils.getStatusBarHeight(this);
                 xInScreen = event.getRawX();
                 yInScreen = event.getRawY() - FloatingUtils.getStatusBarHeight(this);
+
                 break;
             case MotionEvent.ACTION_MOVE:
                 xInScreen = event.getRawX();
