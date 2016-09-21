@@ -47,13 +47,17 @@ public class MainActivity extends BaseActivity<MainVInterface, MainPresenter> im
                 //启动悬浮pet
                 Intent intent = new Intent(MainActivity.this, FloatingPetService.class);
                 startService(intent);
+                Intent home = new Intent(Intent.ACTION_MAIN);
+                home.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                home.addCategory(Intent.CATEGORY_HOME);
+                startActivity(home);
                 break;
         }
     }
 
     @Override
     protected void onDestroy() {
-//        stopService()
+//        stopService();
         super.onDestroy();
     }
 }

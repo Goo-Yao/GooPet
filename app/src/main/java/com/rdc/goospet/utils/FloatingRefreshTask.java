@@ -24,7 +24,6 @@ public class FloatingRefreshTask extends TimerTask {
 
     @Override
     public void run() {
-        LogUtils.e("FloatingRefreshTask - run");
         //当前界面为桌面且没有显示悬浮窗，则显示悬浮窗，否则移除悬浮窗
         if (FloatingUtils.isHome(mActivityManager, mPackageManager) && !FloatingPetManager.isFloatingWindowShowing()) {
             handler.post(new Runnable() {
