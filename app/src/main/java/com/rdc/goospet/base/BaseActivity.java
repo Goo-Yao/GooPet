@@ -2,6 +2,7 @@ package com.rdc.goospet.base;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -9,6 +10,7 @@ import android.view.View;
 
 import com.rdc.goospet.R;
 import com.rdc.goospet.utils.AppConstants;
+import com.rdc.goospet.utils.DimenUtils;
 
 /**
  * Created by Goo on 2016-8-28.
@@ -41,16 +43,23 @@ public abstract class BaseActivity<V, P extends BasePresenter<V>> extends AppCom
 
     protected abstract void findAllViewById();
 
-
     /**
      * @param title 直接显示返回箭头的toolbar
      */
     public void showToolbarAndShowNavigation(String title) {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setToolbarTitle(title);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            toolbar.getLayoutParams().height = DimenUtils.getAppBarHeight(this);
+            toolbar.setPadding(toolbar.getPaddingLeft(),
+                    DimenUtils.getStatusBarHeight(this),
+                    toolbar.getPaddingRight(),
+                    toolbar.getPaddingBottom());
+        }
         showToolBar();
         showOrHideToolBarNavigation(true);
     }
+
 
     /**
      * 设置toolbar标题
@@ -160,6 +169,24 @@ public abstract class BaseActivity<V, P extends BasePresenter<V>> extends AppCom
     protected void dismissProgressDialog() {
         if (mProgressDialog != null && mProgressDialog.isShowing())
             mProgressDialog.dismiss();
+    }
+
+    /**
+     * 带动画启动Activity
+     *
+     * @param intent
+     */
+    protected void startActivityWithAnim(Intent intent) {
+        startActivity(intent);
+        setPendingTransition(AppConstants.OPEN_PENDING_TRANSITION);
+    }
+
+    /**
+     * 带动画关闭Activity
+     */
+    protected void finishActivityWithAnim() {
+        finish();
+        setPendingTransition(AppConstants.OUT_PENDING_TRANSITION);
     }
 
 

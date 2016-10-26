@@ -7,7 +7,7 @@ import com.avos.avoscloud.AVOSCloud;
 /**
  * Created by Goo on 2016-9-6.
  */
-public class PetApplication extends Application {
+public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();

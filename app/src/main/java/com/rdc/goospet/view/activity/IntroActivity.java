@@ -211,8 +211,7 @@ public class IntroActivity extends BaseActivity<IntroVInterface, IntroPresenter>
     private void EnterMain(String userName) {
         AppConstants.USER_NAME = userName;
         Intent intent = new Intent(IntroActivity.this, MainActivity.class);
-        startActivity(intent);
-        setPendingTransition(AppConstants.OPEN_PENDING_TRANSITION);
+        startActivityWithAnim(intent);
         finish();
     }
 

@@ -12,6 +12,8 @@
     <dimen name="margin_ms">5dp</dimen>
 
     <!--text_size 大小-->
+    <dimen name="text_size_xxxl">32sp</dimen>
+    <dimen name="text_size_xxl">24sp</dimen>
     <dimen name="text_size_xl">22sp</dimen>
     <dimen name="text_size_l">20sp</dimen>
     <dimen name="text_size_m">16sp</dimen>
