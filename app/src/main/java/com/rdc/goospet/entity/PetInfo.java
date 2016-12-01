@@ -8,18 +8,18 @@ package com.rdc.goospet.entity;
  * 宠物信息配置
  */
 public class PetInfo {
+    private int petId;
     private boolean isSelected;//选中
     private int picId;//图片资源
     private String name;//名字
-    private String bgColor;//背景颜色
     private String description;//描述
 
-    public PetInfo(String name, String description, String bgColor, int picId, boolean isSelected) {
+    public PetInfo(int petId, String name, String description, int picId, boolean isSelected) {
+        this.petId = petId;
         this.name = name;
         this.description = description;
         this.picId = picId;
         this.isSelected = isSelected;
-        this.bgColor = bgColor;
     }
 
     public boolean isSelected() {
@@ -54,11 +54,12 @@ public class PetInfo {
         this.description = description;
     }
 
-    public String getBgColor() {
-        return bgColor;
+
+    public int getPetId() {
+        return petId;
     }
 
-    public void setBgColor(String bgColor) {
-        this.bgColor = bgColor;
+    public void setPetId(int petId) {
+        this.petId = petId;
     }
 }

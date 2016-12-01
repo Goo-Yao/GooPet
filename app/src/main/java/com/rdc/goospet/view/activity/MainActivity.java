@@ -15,6 +15,7 @@ import com.rdc.goospet.adapter.RVMainAdapter;
 import com.rdc.goospet.base.BaseActivity;
 import com.rdc.goospet.listener.HidingScrollListener;
 import com.rdc.goospet.presenter.MainPresenter;
+import com.rdc.goospet.service.FloatingPetService;
 import com.rdc.goospet.utils.DimenUtils;
 import com.rdc.goospet.view.vinterface.MainVInterface;
 
@@ -120,5 +121,16 @@ public class MainActivity extends BaseActivity<MainVInterface, MainPresenter> im
     protected void onDestroy() {
 //        stopService();
         super.onDestroy();
+    }
+
+    @Override
+    public void launchDesktopPet() {
+        //启动悬浮pet
+        Intent intent = new Intent(MainActivity.this, FloatingPetService.class);
+        startService(intent);
+        Intent home = new Intent(Intent.ACTION_MAIN);
+        home.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        home.addCategory(Intent.CATEGORY_HOME);
+        startActivity(home);
     }
 }

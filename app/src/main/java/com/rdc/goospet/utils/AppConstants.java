@@ -28,4 +28,10 @@ public class AppConstants {
 
     public static String USER_NAME = null;
 
+    //petId
+    public static final int PET_OWL = 1221;
+    public static final int PET_PIG = 1222;
+    public static final int PET_COW = 1223;
+    public static final int PET_BIRD = 1224;
+
 }

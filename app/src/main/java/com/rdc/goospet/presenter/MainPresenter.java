@@ -4,12 +4,14 @@ import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
+import android.widget.CompoundButton;
 
 import com.rdc.goospet.adapter.RVMainAdapter;
 import com.rdc.goospet.base.BasePresenter;
 import com.rdc.goospet.entity.PetInfo;
 import com.rdc.goospet.model.MainModel;
 import com.rdc.goospet.model.minterface.MainMInterface;
+import com.rdc.goospet.utils.AppConstants;
 import com.rdc.goospet.utils.ToastUtil;
 import com.rdc.goospet.view.vinterface.MainVInterface;
 
@@ -39,8 +41,31 @@ public class MainPresenter extends BasePresenter<MainVInterface> {
                 ToastUtil.showToast(context, "PetInfo:" + petInfo.getName() + "\n" + petInfo.getDescription());
             }
         });
+        adapter.setOnPetSelectedListener(new RVMainAdapter.OnPetSelectedListener() {
+
+            @Override
+            public void onPetSelected(CompoundButton buttonView, int petId) {
+                boolean isCheck = buttonView.isChecked();
+                if (isCheck) {
+                    view.launchDesktopPet();
+                }
+                switch (petId) {
+                    case AppConstants.PET_BIRD:
+                        break;
+                    case AppConstants.PET_COW:
+                        break;
+                    case AppConstants.PET_PIG:
+                        break;
+                    case AppConstants.PET_OWL:
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
         return adapter;
     }
+
 
     public ItemTouchHelper getItemTouchHelper(final RVMainAdapter adapter) {
         return new ItemTouchHelper(new ItemTouchHelper.Callback() {
