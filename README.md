@@ -13,4 +13,7 @@
 - 尚在努力开发中，敬请期待~
 
 ## App截图
-![](http://odzvmv4ab.bkt.clouddn.com/GooPet.png)
+![](http://odzvmv4ab.bkt.clouddn.com/GooPet_welcome.png)
+![](http://odzvmv4ab.bkt.clouddn.com/Goo_Pet_3.png)
+![](http://odzvmv4ab.bkt.clouddn.com/Goo_Pet_1.png)
+![](http://odzvmv4ab.bkt.clouddn.com/Goo_Pet_2.png)
