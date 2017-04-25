@@ -72,6 +72,7 @@ public class MainActivity extends BaseActivity<MainVInterface, MainPresenter> im
         itemHelper.attachToRecyclerView(mRvMain);
     }
 
+
     /**
      * 显示悬浮按钮
      */
